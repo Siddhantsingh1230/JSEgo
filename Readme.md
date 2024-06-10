@@ -1,4 +1,4 @@
-![JS Ego ](/assets/JSEGO.png).png)
+![JS Ego ](/assets/JSEGO.png)
 
 ## Overview
 
