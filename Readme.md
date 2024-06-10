@@ -1,5 +1,3 @@
-# JS Ego
-
 ![JS Ego ](/assets/JSEGO.png).png)
 
 ## Overview
