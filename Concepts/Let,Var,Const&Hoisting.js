@@ -1,5 +1,6 @@
 // Var
-
+// It is an older way of declaring variables in JS
+// Has many security problems 
 var a = 2
 // All var declared variables are attached to window object
 console.log(window.a) // 2 // will not work in nodejs as no window object is there in node
@@ -8,6 +9,11 @@ console.log(window.a) // 2 // will not work in nodejs as no window object is the
 // These variables are hoisted.
 
 // let and const
+// `Let` and `const` are newer standards for declaring variables in JS
+// `Let` declared variables are subject to change , they are mutable
+// values of `const` declared variables are constant and subject to no change
+// `const` variables are declared and initialized at same time else will throw error
+// `const` variables  are immutable
 
 let b = 1
 const c = 3;
@@ -33,7 +39,6 @@ console.log(x)
 
 // Strict Mode
 // Strict mode makes it easier to write "secure" JavaScript.
-
-// IUss Strict to Stop Hoisting
+// `use strict` to Stop Hoisting
 "use strict";
-x = 3.14;       // This will cause an error because x is not declared
+x = 3.14;       // This will cause an error because x is not defined/declared
