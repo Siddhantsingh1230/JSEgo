@@ -11,4 +11,4 @@
 // Boolean(Nan) = false
 
 // undefined == null // true
-// undefined === false // true
+// undefined === null // false
