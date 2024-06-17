@@ -88,3 +88,17 @@ for (var count = 0; count < 3; count++) {
 // When control enters the `for` loop and encounters the `setTimeout()` function, the `setTimeout()` call is initiated but its execution is suspended because it is an asynchronous operation managed by the Web API. The `setTimeout()` call is then sent to the callback queue, and the loop proceeds to the next iteration. This process repeats until the `for` loop completes. Once the loop has finished executing, the `setTimeout()` callbacks in the callback queue are then executed.
 
 // When we used let to declare the loop variable, we got the output 0, 1, 2 because let (and const) creates a new lexical environment or block scope for each iteration of the loop. This means each iteration has its own separate count variable with the correct value, resulting in 0, 1, 2 being printed as expected. In contrast, when we use var to declare the loop variable, there is only one count variable shared among all iterations. As a result, the final value of count (after the loop completes) is used in all the setTimeout callbacks, leading to repeated outputs of the final loop value.
+
+
+// Bonus Using Var and IIFE
+// 3.
+const delay3 = 0; // no matter what delay is used output is same
+for (var count = 0; count < 3; count++) {
+  ((i)=>{setTimeout(() => {
+    console.log(i);
+  }, delay3)})(count);
+}
+// output
+// 0
+// 1
+// 2
