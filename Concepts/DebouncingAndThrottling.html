@@ -1,12 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debouncing</title>
-</head>
-<body>
-    <input type="text">
-    <script src="Debouncing.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debouncing and Throttling</title>
+  </head>
+  <body>
+    <label for="undebouncedTextBox">UndebouncedTextBox</label>
+    <input id="undebouncedTextBox" type="text" />
+    <div id="undebouncedAPIStack"></div>
+    <br />
+    <label for="debouncedTextBox">DebouncedTextBox</label>
+    <input id="debouncedTextBox" type="text" />
+    <div id="debouncedAPIStack"></div>
+    <br />
+    <p>Unthrottled API Call</p>
+    <div
+      id="unthrottledContainer"
+      style="
+        border: 2px solid red;
+        height: 300px;
+        width: 300px;
+        overflow-y: auto;
+      "
+    >
+      <!-- dummyData to create scrollable container -->
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+      laboriosam eaque repellat inventore voluptates maxime dolor eos veniam
+      voluptatibus, iste libero illo aut, quia labore saepe? Reiciendis officia
+      iste, reprehenderit provident culpa voluptatibus debitis eos porro. Esse
+      soluta sunt perspiciatis voluptatem, magni eveniet accusantium tempora
+      totam amet, ipsa, excepturi blanditiis est corporis? Saepe excepturi
+      veniam recusandae officiis at impedit, minus aliquam rem necessitatibus id
+      deleniti perferendis ratione suscipit omnis minima. Laboriosam voluptatem
+      dolor sint nemo tenetur esse id, natus eos ea, tempora saepe ipsa totam
+      repellat, temporibus dolorem. Quaerat repudiandae laudantium nihil dolores
+      laboriosam, inventore eum pariatur perspiciatis hic doloribus facere totam
+      illum molestias autem magnam aut reprehenderit deserunt id incidunt unde
+      natus ad praesentium! Doloribus dolorum non ea aut debitis natus dolores
+      laborum incidunt quod, nihil atque saepe blanditiis consequatur assumenda
+      soluta autem sequi similique deserunt at ab perspiciatis! Quis illo esse
+      nostrum id, sint quia commodi a accusamus nihil mollitia sunt, accusantium
+      labore, laudantium eos! Rem, quod suscipit fugiat quas sequi quae earum
+      molestiae blanditiis enim dolor alias necessitatibus quis at quaerat
+      facere, aut quidem labore corporis deserunt cupiditate similique aliquid.
+      Fugit quis recusandae perspiciatis distinctio magnam? Tempore
+      reprehenderit pariatur temporibus sapiente consequuntur enim perferendis
+      quisquam magni officiis, expedita ipsam! Illo quas labore illum debitis
+      officiis obcaecati accusantium odit ratione. Accusantium mollitia ex est
+      velit temporibus, accusamus sed? Dicta placeat enim tempore numquam sunt
+      modi corrupti quam ad aperiam accusamus consequuntur, autem ipsum
+      doloribus, dolore maxime quas labore tenetur commodi. Saepe veritatis quod
+      soluta rem culpa magnam iusto unde voluptas, odit, et nam laudantium,
+      excepturi tenetur. Esse laborum neque fugit eligendi cum nemo dolorem
+      odit, sint commodi ipsam! Consequatur, quibusdam et culpa eos ea a? Minus
+      quas aperiam laboriosam mollitia commodi blanditiis temporibus hic quaerat
+      facilis, quidem, libero vero omnis voluptates iusto laudantium? Aspernatur
+      odio porro laboriosam itaque.
+    </div>
+    <p>Throttled API Call</p>
+    <div
+      id="throttledContainer"
+      style="
+        border: 2px solid green;
+        height: 300px;
+        width: 300px;
+        overflow-y: auto;
+      "
+    >
+      <!-- dummyData to create scrollable container -->
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+      laboriosam eaque repellat inventore voluptates maxime dolor eos veniam
+      voluptatibus, iste libero illo aut, quia labore saepe? Reiciendis officia
+      iste, reprehenderit provident culpa voluptatibus debitis eos porro. Esse
+      soluta sunt perspiciatis voluptatem, magni eveniet accusantium tempora
+      totam amet, ipsa, excepturi blanditiis est corporis? Saepe excepturi
+      veniam recusandae officiis at impedit, minus aliquam rem necessitatibus id
+      deleniti perferendis ratione suscipit omnis minima. Laboriosam voluptatem
+      dolor sint nemo tenetur esse id, natus eos ea, tempora saepe ipsa totam
+      repellat, temporibus dolorem. Quaerat repudiandae laudantium nihil dolores
+      laboriosam, inventore eum pariatur perspiciatis hic doloribus facere totam
+      illum molestias autem magnam aut reprehenderit deserunt id incidunt unde
+      natus ad praesentium! Doloribus dolorum non ea aut debitis natus dolores
+      laborum incidunt quod, nihil atque saepe blanditiis consequatur assumenda
+      soluta autem sequi similique deserunt at ab perspiciatis! Quis illo esse
+      nostrum id, sint quia commodi a accusamus nihil mollitia sunt, accusantium
+      labore, laudantium eos! Rem, quod suscipit fugiat quas sequi quae earum
+      molestiae blanditiis enim dolor alias necessitatibus quis at quaerat
+      facere, aut quidem labore corporis deserunt cupiditate similique aliquid.
+      Fugit quis recusandae perspiciatis distinctio magnam? Tempore
+      reprehenderit pariatur temporibus sapiente consequuntur enim perferendis
+      quisquam magni officiis, expedita ipsam! Illo quas labore illum debitis
+      officiis obcaecati accusantium odit ratione. Accusantium mollitia ex est
+      velit temporibus, accusamus sed? Dicta placeat enim tempore numquam sunt
+      modi corrupti quam ad aperiam accusamus consequuntur, autem ipsum
+      doloribus, dolore maxime quas labore tenetur commodi. Saepe veritatis quod
+      soluta rem culpa magnam iusto unde voluptas, odit, et nam laudantium,
+      excepturi tenetur. Esse laborum neque fugit eligendi cum nemo dolorem
+      odit, sint commodi ipsam! Consequatur, quibusdam et culpa eos ea a? Minus
+      quas aperiam laboriosam mollitia commodi blanditiis temporibus hic quaerat
+      facilis, quidem, libero vero omnis voluptates iusto laudantium? Aspernatur
+      odio porro laboriosam itaque.
+    </div>
+    <script src="DebouncingAndThrottling.js"></script>
+  </body>
 </html>
