@@ -135,8 +135,9 @@ newObj.objMethod();
 const crazyObj = {
   objName: "Crazy",
   objMethod() {
-    // normal function ( not an arrow function)
+    // 👆 normal function ( not an arrow function)
     const arrowFun = () => {
+      // 👈 arrow function
       console.log(this);
     };
     arrowFun();
@@ -148,8 +149,74 @@ crazyObj.objMethod();
 // what different happened here with `arrowFun()` this time ?
 // So according to definitions Arrow function's `this` will refer to the `this` of its enclosing lexical environment, here the enclosing lexical environment is the environment inside the `objMethod` anf inside here `this` refers to the current object through which this method is invocked therefore 'this` inside the `arrowFun` also referred to the same object
 
-
 // 7. `this` inside a dom
-<p onclick='console.log(this)'>Hii guys</p>
+<p onclick="console.log(this)">Hii guys</p>;
 // object.HTMLp
-//  `this` here refers to the current HTML element through which it is invocked 
+//  `this` here refers to the current HTML element through which it is invocked
+
+// More interview Questions
+// Q1
+const obj = {
+  foo: 1,
+  func: function () {
+    console.log("outter" + this);
+    (function () {
+      console.log("inner" + this);
+    })();
+  },
+};
+// Q2
+obj.func();
+// outter[object Object]
+// inner[object Window]
+
+const obj2 = {
+  foo: 1,
+  func: function () {
+    console.log("outter" + this);
+    function a() {
+      console.log("inner" + this);
+    }
+    a();
+  },
+};
+
+obj2.func();
+// outter[object Object]
+// inner[object Window]
+
+// Q3
+const crazyObj2 = {
+  objName: "Crazy",
+  objMethod() {
+    // 👆 normal function ( not an arrow function)
+    function arrowFun() {
+      // 👈 normal function
+      console.log(this);
+    }
+    arrowFun();
+  },
+};
+crazyObj2.objMethod();
+// Window {0: Window, window: Window, self: Window, document: document, name: '', location: Location, …}
+// explaination : Function nested inside a function loses `this` context and start to refer global object
+
+// Q4
+const crazyObj3 = {
+  objName: "Crazy",
+  objMethod() {
+    // 👆 normal function ( not an arrow function)
+    const arrowFun = () => {
+      // 👈 arrow function
+      const arrowFun2 = () => {
+        // 👈 arrow function
+        console.log(this);
+      };
+      arrowFun2();
+    };
+    arrowFun();
+  },
+};
+crazyObj3.objMethod();
+// {objName: 'Crazy', objMethod: ƒ} 
+// As we know arrow functions work differently then normal functions, arrow function follow `this` context based on their lexical scoping , so lexical scope of `arrowfun` contains `this` that points to the invocked object , since the lexical scope was maintained in nested function the `this` in lexical scope of `arrowFun2` is also referring to the same invocked object , this behaviour is not true for normal functions as normal function nesting doesnot preserve `this` context

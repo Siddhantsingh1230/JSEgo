@@ -31,7 +31,7 @@ console.log(typeof String()); // String
 let a = {};
 let b = a;
 console.log(a==b); // true ,because `value` is checked here
-console.log(a===b); // true , True because `value + type` is checked here which is her same, as objects and arrays are refrence types not value type
+console.log(a===b); // true , True because `value + type` is checked here which is here same, as objects and arrays are refrence types not value type, so when we say referenceType1 = referenceType2 we are actually sharing the same reference 
 
 
 // # KeyTake Aways

@@ -25,7 +25,7 @@
 // Throttling
 // Throttling ensures that a function is executed at most once in a specified period, regardless of how many times the event is triggered.
 
-// examples where to use debouncing
+// examples where to use throttling
 // • Scrolling: Updating the scroll position or performing animations at regular intervals while the user is scrolling.
 // • Rate-Limiting API Calls: Ensuring that API calls are not made more than once per second, regardless of how many times the user action occurs.
 
