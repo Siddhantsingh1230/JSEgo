@@ -1,4 +1,4 @@
-// In JavaScript, there are no required arguments.
+// In JavaScript, there are nothing called required arguments.
 
 const fxWithArgs = (requiredArg) => {
   console.log(requiredArg);
