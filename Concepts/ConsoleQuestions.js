@@ -59,14 +59,41 @@ console.log("1 || 2 = " + (1 || 2)); // 1
 console.log("0 && 1 = " + (0 && 1)); // 0
 console.log("1 && 2 = " + (1 && 2)); // 2
 
-console.log(true>1) // false
-console.log(true<1) // false
-console.log(true == 1) // true
+console.log(true > 1); // false
+console.log(true < 1); // false
+console.log(true == 1); // true
 
-console.log(1<2<3) ; // true
-console.log(3>2>1) ; // false
+console.log(1 < 2 < 3); // true
+console.log(3 > 2 > 1); // false
 
-console.log(typeof undefined == typeof NULL) // true
+console.log(typeof undefined == typeof NULL); // true
 
 // console.log(typeof typeof ) syntax error
-console.log(typeof typeof 1 ) // string
+console.log(typeof typeof 1); // string
+
+console.log(Number()); // 0 default value of Number type
+console.log(String()); //  default value of String type
+console.log(Boolean()); // false default value of Boolean type
+console.log(NaN > 0); // false
+console.log(NaN < 0); // false
+console.log(NaN == 0); // false
+console.log("hello" > 0); // false
+// explaination in string comparison both operands will be coerced (by a process called type coercion) to similar type here both operands will be converted to number and Number("hello") is NaN and NaN > 0 returns false;
+console.log("hello" < 0); // false
+console.log("hello" == 0); // false
+console.log(Number("")); // 0
+console.log(Number(" ")); // 0
+console.log(Boolean("")); // false
+console.log(Boolean(" ")); // true
+console.log(Number(NaN)); // NaN
+console.log(Boolean(NaN)); // false
+console.log("13" < "2"); // true
+// explaination in string comparison the character by character value is compared
+// here first character is '1', hence the "1" is converted to equivalent ASCII code hence the value of '1 is 49 which is less then 50 (ascii equivalent of '2') therefore result is true
+console.log("Boy" < "Man"); // true
+
+// Visit ASCII.js or equivalent to understand the following
+console.log("97".charCodeAt()); // 57
+console.log("97".charCodeAt(0)); // 57
+console.log("97".charCodeAt(1)); // 55
+console.log(8 + undefined); // NaN 
