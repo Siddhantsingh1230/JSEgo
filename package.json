@@ -1,0 +1,23 @@
+{
+  "name": "JSEgo",
+  "version": "1.0.0",
+  "description": "JSEgo dives into realm of JavaScript for deeper understanding of various JS Concepts",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JSEgo",
+    "JavaScript",
+    "Typescript",
+    "react",
+    "Node",
+    "interview"
+  ],
+  "author": "Siddhant Singh",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
